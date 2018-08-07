@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * 一个PHP的csv下载小工具
  */
 class CsvDownloader
 {
@@ -29,7 +29,7 @@ class CsvDownloader
      * @param bool $useBOM  是否添加BOM头，如不添加，officeExcel打开utf8格式的csv文件会出现中文乱码
      * @return string
      */
-    public function downloadCsvWithoutFramework(Array $data, string $fileName,Array $escapeScienceNotation = [], Array $headers = [], $useBOM = true){
+    public function downloadCsv(Array $data, string $fileName,Array $escapeScienceNotation = [], Array $headers = [], $useBOM = true){
         $data = array_merge([array_keys($data[0])], $data);
         $headers = array_merge($headers, ['Content-Disposition' => 'attachment; filename="'.$fileName.'.csv"',]);
         $this->_setHeaders($headers);
