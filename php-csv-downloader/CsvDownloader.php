@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 一个PHP的csv下载小工具
+ * 一个PHP服务端csv下载小工具
  */
 class CsvDownloader
 {
