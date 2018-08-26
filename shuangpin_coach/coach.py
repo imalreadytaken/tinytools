@@ -1,4 +1,5 @@
 import random
+from Logger import Logger
 
 class couch:
     codes = {
@@ -39,6 +40,9 @@ class couch:
 
     code_selected = []
 
+    def __init__(self):
+        self.logger = Logger()
+
     def choose_code(self):
         print('choose your code :')
         for k in self.codes:
@@ -55,9 +59,11 @@ class couch:
             print('please insert code for : ',answer)
             a = input()
             while a != self.code_selected['yun_mu'][answer]:
+                self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',wrong')
                 print('wrong! try again : ')
                 a = input()
             print('good job!')
+            self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',right')
 
 if __name__ == '__main__':
     couch().test()
