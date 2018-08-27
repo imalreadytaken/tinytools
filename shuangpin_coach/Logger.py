@@ -1,11 +1,12 @@
 
 class Logger:
 
-    LOG_PATH = 'log.txt'
+    LOG_PATH = './'
+    LOG_FILE = '_log.txt'
     ENCODING = 'utf-8'
 
-    def __init__(self):
-        self.handler = open(self.LOG_PATH,'a+',encoding=self.ENCODING)
+    def __init__(self, code):
+        self.handler = open(self.LOG_PATH + code + self.LOG_FILE,'a+',encoding=self.ENCODING)
 
     def log(self, content):
         self.handler.write(content + "\n")
@@ -13,4 +14,5 @@ class Logger:
 
     def close(self):
         self.handler.close()
+
 

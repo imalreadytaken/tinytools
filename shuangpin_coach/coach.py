@@ -41,7 +41,7 @@ class couch:
     code_selected = []
 
     def __init__(self):
-        self.logger = Logger()
+        pass
 
     def choose_code(self):
         print('choose your code :')
@@ -51,6 +51,7 @@ class couch:
         while not self.codes.__contains__(code):
             code = input('no code found, switch one?')
         self.code_selected = self.codes[code]
+        self.logger = Logger(code)
 
     def test(self):
         self.choose_code()
@@ -59,11 +60,24 @@ class couch:
             print('please insert code for : ',answer)
             a = input()
             while a != self.code_selected['yun_mu'][answer]:
-                self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',wrong')
-                print('wrong! try again : ')
+                if a == 'exit':
+                    self._exit()
+                elif a == 'help':
+                    self.help(answer)
+                else:
+                    self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',wrong')
+                    print('wrong! try again : ')
                 a = input()
             print('good job!')
             self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',right')
+
+    def help(self, code):
+        print('the answer is ', self.code_selected['yun_mu'][code])
+
+    def _exit(self):
+        print('Bye!')
+        exit(0)
+
 
 if __name__ == '__main__':
     couch().test()
