@@ -40,6 +40,10 @@ class couch:
 
     code_selected = []
 
+    timeout = false;
+
+    timing = false;
+
     def __init__(self):
         pass
 
@@ -67,7 +71,11 @@ class couch:
                 else:
                     self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',wrong')
                     print('wrong! try again : ')
+                # 设置超时可用标志
+                # 启动定时
                 a = input()
+                # 判断是否超时
+                # 设置超时不可用标志
             print('good job!')
             self.logger.log(answer + ',' + self.code_selected['yun_mu'][answer] + ',right')
 
