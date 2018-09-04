@@ -1,6 +1,7 @@
 import random
 from Logger import Logger
 # 刚到家，十一点五十了，水一个卡吧
+# 2018-09-04   刚到家，十一点十分了，签个到
 class couch:
     codes = {
         'natural': {
